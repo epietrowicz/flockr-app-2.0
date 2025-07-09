@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<body>
+    <h1>Flockr</h1>
+    <a class="btn" href="{{ url_for('demo') }}">Sample Stream</a>
+    <a class="btn" href="{{ url_for('capture') }}">Live Feed</a>
+</body>
+{% endblock %}

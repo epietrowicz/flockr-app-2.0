@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<body>
+    <h1>Sample Video Feed</h1>
+    <p id="label">Unknown</p>
+    <p id="score">0</p>
+    <img src="{{ url_for('demo_video') }}" width="640" height="480">
+    <div class="controls">
+        <button class="btn" onclick="sendRewind()">&laquo; RWD</button>
+        <button class="btn" onclick="sendFastForward()">FWD &raquo;</button>
+    </div>
+    <script>
+        var socket = io.connect('http://' + document.domain + ':' + location.port);
+
+        socket.on('result', function (data) {
+            document.getElementById('label').innerText = data?.label ?? "Unknown";
+            document.getElementById('score').innerText = data?.score ?? 0;
+        });
+
+        function sendFastForward(direction) {
+            socket.emit('fast_forward');
+        }
+        function sendRewind(direction) {
+            socket.emit('rewind');
+        }
+    </script>
+</body>
+{% endblock %}

@@ -1,0 +1,30 @@
+slug: flockr
+type: Tutorial
+category: "Getting started"
+expertiseLevel: "Beginner"
+tags: ["Application"]
+icon: assets/hello-world.svg
+gitrepo: https://github.com/epietrowicz/flockr-2.0
+name: "Hello, World Flockr"
+shortDescription: The Flockr bird identifying application for Particle Tachyon.
+version: 1.0.0
+models: []
+language: [ "Python" ]
+cloudServices:
+integrations: []
+supportedDevices:
+  - name: Tachyon
+  - name: Rasberry Pi
+webIdeLink: https://go.particle.io/shared_apps/6761f677ca3d870509cd4384
+webSetupLink: part.cl/setup-tachyon
+hardwareDependencies:
+  - name: Supported device
+containers: flockr
+introduction: |
+  Welcome to the **Hello World Linux Blueprint App** for Particle! 
+
+description: |
+  The Hello World blueprint for Linux is here
+
+additionalResources:
+  - [Tachyon Edge AI Overview](https://particle.io/tachyon)
