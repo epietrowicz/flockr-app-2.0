@@ -5,18 +5,20 @@ import sqlite3
 from tflite_support.task import core
 from tflite_support.task import processor
 from tflite_support.task import vision
-import serial
-import base64
+# import serial
+# import base64
 import time
+from camera import get_camera_port
 
 THRESHOLD = 0.7
 NAMEDBPATH = "birdnames.db"
-SERIAL_DEV = "/dev/ttyACM0"
+CAMERA_PORT = "/dev/video3"
+# SERIAL_DEV = "/dev/ttyACM0"
 
 should_ff = True
 should_rw = False
 last_bird_seen = None
-ser = serial.Serial(SERIAL_DEV, 115200)
+# ser = serial.Serial(SERIAL_DEV, 115200)
 
 # Initialize the image classification model
 base_options = core.BaseOptions(
@@ -98,31 +100,32 @@ def rewind():
     global should_rw
     should_rw = True
 
-def send_image(frame):
-    resized = cv2.resize(frame, (160, 120))
+# def send_image(frame):
+#     resized = cv2.resize(frame, (160, 120))
     
-    _, compressed_buffer = cv2.imencode('.jpg', resized, [cv2.IMWRITE_JPEG_QUALITY, 60])
-    base64_string = base64.b64encode(compressed_buffer).decode("utf-8")
-    ser.write(b"START\n")
+#     _, compressed_buffer = cv2.imencode('.jpg', resized, [cv2.IMWRITE_JPEG_QUALITY, 60])
+#     base64_string = base64.b64encode(compressed_buffer).decode("utf-8")
+#     ser.write(b"START\n")
 
-    # Send data over serial in chunks
-    chunk_size = 512  # Adjust based on buffer limits
-    for i in range(0, len(base64_string), chunk_size):
-        chunk = base64_string[i : i + chunk_size]
-        segment = chunk.encode() + b"\n"
-        ser.write(segment)  # Send each chunk as a line
-        time.sleep(0.05)
+#     # Send data over serial in chunks
+#     chunk_size = 512  # Adjust based on buffer limits
+#     for i in range(0, len(base64_string), chunk_size):
+#         chunk = base64_string[i : i + chunk_size]
+#         segment = chunk.encode() + b"\n"
+#         ser.write(segment)  # Send each chunk as a line
+#         time.sleep(0.05)
 
-    ser.write(b"END\n")
-    print("Image sent successfully")
+#     ser.write(b"END\n")
+#     print("Image sent successfully")
 
 def generate_frames(is_live, socketio):
     global should_ff
     global should_rw
     global last_bird_seen
-    global ser
+    # global ser
     if is_live:
-        cap = cv2.VideoCapture(0)
+        camera = get_camera_port()
+        cap = cv2.VideoCapture(camera)
     else: 
         cap = cv2.VideoCapture("test-video.mp4")
 
@@ -166,9 +169,9 @@ def generate_frames(is_live, socketio):
                 timestamp = cap.get(cv2.CAP_PROP_POS_MSEC) / 1000
                 common_name = get_common_name(display_name)
                 if common_name != last_bird_seen:
-                    send_image(frame)
-                    serial_str = f"INFERENCE={common_name},{score}\n"
-                    ser.write(serial_str.encode())
+                    # send_image(frame)
+                    # serial_str = f"INFERENCE={common_name},{score}\n"
+                    # ser.write(serial_str.encode())
                     last_bird_seen = common_name
                 result_text = [f"Label: {common_name} Score: {score}"]
                 print(f"Timestamp: {timestamp} seconds, {result_text}")

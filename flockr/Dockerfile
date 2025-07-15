@@ -18,11 +18,11 @@ RUN python -m pip install -r requirements.txt
 WORKDIR /app
 COPY . /app
 
-# Expose port 5000 for Flask
-EXPOSE 5000
+# Expose port 5001 for Flask
+EXPOSE 5001
 
 # Set the environment variables for Flask hot reloading
 ENV FLASK_APP=src/main.py
 ENV FLASK_ENV=development
 
-CMD ["flask", "run", "--host=0.0.0.0", "--port=5000", "--reload"]
+CMD ["flask", "run", "--host=0.0.0.0", "--port=5001", "--reload"]

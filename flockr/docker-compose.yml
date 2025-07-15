@@ -1,11 +1,25 @@
 services:
   app:
     build: .
-    container_name: flocker
+    container_name: flockr
     ports:
-      - "5000:5000"
+      - "5001:5001"
     volumes:
       - .:/app
     devices:
       - "/dev/video0:/dev/video0"
-      - "/dev/ttyACM0:/dev/ttyACM0"
+      - "/dev/video1:/dev/video1"
+      - "/dev/video2:/dev/video2"
+      - "/dev/video3:/dev/video3"
+  cloudflared:
+    image: cloudflare/cloudflared:latest
+    command: tunnel --no-autoupdate run --token eyJhIjoiMmIwNDU1ZGMxYWFiYzQ1YTUxMjVlZTc1NmNjY2Y1NDciLCJ0IjoiMjBkM2Q4MDctYzMzMy00MDIzLWEyYWYtNzIxNmVjZDM1YTI4IiwicyI6Ik9HTmhORGcxTldNdE5HWmtOeTAwTkdFd0xUazROamd0WXpjek0yRmxaVFkzTkdFNSJ9
+    networks:
+      - flockr-net
+    depends_on:
+      - app
+    restart: unless-stopped
+
+networks:
+  flockr-net:
+    driver: bridge
