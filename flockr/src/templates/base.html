@@ -8,36 +8,17 @@
     <title>Flockr</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.3.2/socket.io.js"></script>
+    <!-- Tailwind CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <style>
         body {
             font-family: 'Roboto', sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            height: 100vh;
-            background-color: #f4f4f4;
-            margin: 0;
-            font-family: Arial, sans-serif;
-        }
-
-        .controls {
-            margin-top: 20px;
-        }
-
-        button {
-            padding: 12px 24px;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            outline: none;
         }
     </style>
 </head>
 
-<body>
+<body class="flex justify-center items-center text-center min-h-screen bg-gray-100 m-0">
     <main>
         {% block content %}{% endblock %}
     </main>
