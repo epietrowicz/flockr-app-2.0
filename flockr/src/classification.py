@@ -90,7 +90,6 @@ def get_common_name(scientific_name):
 def fast_forward():
     global should_ff
     should_ff = True
-    print(f"Stepping forward")
 
 
 def rewind():

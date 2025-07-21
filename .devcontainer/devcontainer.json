@@ -5,6 +5,7 @@
   "workspaceFolder": "/app",
   "remoteUser": "root",
   "shutdownAction": "stopCompose",
+  "overrideCommand": true,
   "customizations": {
     "vscode": {
       "settings": {

@@ -2,9 +2,32 @@
 
 {% block content %}
 
-<body>
+<div class="text-center max-w-xl">
+    <img src="{{ url_for('static', filename='img/hero.svg') }}" class="w-48 mx-auto mb-4">
     <h1 class="text-xl font-bold mb-2">Flockr</h1>
-    <a class="btn" href="{{ url_for('demo') }}">Sample Stream</a>
-    <a class="btn" href="{{ url_for('capture') }}">Live Feed</a>
-</body>
+    <p>
+        The bird species classification app using a Particle
+        <a href="https://www.particle.io/tachyon/" class="link">
+            Tachyon
+        </a>
+    </p>
+    <p>
+        Check out the source code
+        <a href="https://github.com/epietrowicz/flockr-app-2.0" class="link">
+            here
+        </a>
+    </p>
+    <div class="mt-8">
+        <a class="btn" href="{{ url_for('demo') }}">
+            <img
+                src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWZpbGUtdmlkZW8taWNvbiBsdWNpZGUtZmlsZS12aWRlbyI+PHBhdGggZD0iTTE1IDJINmEyIDIgMCAwIDAtMiAydjE2YTIgMiAwIDAgMCAyIDJoMTJhMiAyIDAgMCAwIDItMlY3WiIvPjxwYXRoIGQ9Ik0xNCAydjRhMiAyIDAgMCAwIDIgMmg0Ii8+PHBhdGggZD0ibTEwIDExIDUgMy01IDN2LTZaIi8+PC9zdmc+" />
+            <span>Sample Stream</span>
+        </a>
+        <a class="btn" href="{{ url_for('capture') }}">
+            <img
+                src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWNhbWVyYS1pY29uIGx1Y2lkZS1jYW1lcmEiPjxwYXRoIGQ9Ik0xNC41IDRoLTVMNyA3SDRhMiAyIDAgMCAwLTIgMnY5YTIgMiAwIDAgMCAyIDJoMTZhMiAyIDAgMCAwIDItMlY5YTIgMiAwIDAgMC0yLTJoLTNsLTIuNS0zeiIvPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTMiIHI9IjMiLz48L3N2Zz4=" />
+            <span>Live Feed</span>
+        </a>
+    </div>
+</div>
 {% endblock %}

@@ -4,27 +4,16 @@
 
 <body>
     <h1>Sample Video Feed</h1>
-    <p id="label">Unknown</p>
-    <p id="score">0</p>
     <img src="{{ url_for('demo_video') }}" width="640" height="480">
-    <div class="controls">
-        <button class="btn" onclick="sendRewind()">&laquo; RWD</button>
-        <button class="btn" onclick="sendFastForward()">FWD &raquo;</button>
+    <div class="absolute bottom-0 right-0 p-12">
+        <ul id="results-list" class="list bg-base-100 rounded-box shadow-md">
+            <!-- Results will be populated here -->
+        </ul>
     </div>
-    <script>
+    <script type="module">
+        import { onResult } from "{{ url_for('static', filename='js/app.js') }}";
         var socket = io.connect('http://' + document.domain + ':' + location.port);
-
-        socket.on('result', function (data) {
-            document.getElementById('label').innerText = data?.label ?? "Unknown";
-            document.getElementById('score').innerText = data?.score ?? 0;
-        });
-
-        function sendFastForward(direction) {
-            socket.emit('fast_forward');
-        }
-        function sendRewind(direction) {
-            socket.emit('rewind');
-        }
+        socket.on('result', onResult);
     </script>
 </body>
 {% endblock %}

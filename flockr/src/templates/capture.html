@@ -2,18 +2,24 @@
 
 {% block content %}
 
-<body>
-    <h1>Live Video Feed</h1>
-    <p id="label">Unknown</p>
-    <p id="score">0</p>
-    <img src="{{ url_for('video_capture') }}" width="640" height="480">
-    <script>
+<body class="relative">
+    <div class="text-left">
+        <a href="/" class="link flex items-center">
+            <span aria-hidden="true">&larr;</span>
+            Back
+        </a>
+        <h1 class="text-2xl font-bold">Live Video Feed</h1>
+        <img src="{{ url_for('video_capture') }}" width="640" height="480">
+    </div>
+    <div class="absolute bottom-0 right-0 p-12">
+        <ul id="results-list" class="list bg-base-100 rounded-box shadow-md">
+            <!-- Results will be populated here -->
+        </ul>
+    </div>
+    <script type="module">
+        import { onResult } from "{{ url_for('static', filename='js/app.js') }}";
         var socket = io.connect('http://' + document.domain + ':' + location.port);
-
-        socket.on('result', function (data) {
-            document.getElementById('label').innerText = data?.label ?? "Unknown";
-            document.getElementById('score').innerText = data?.score ?? 0;
-        });
+        socket.on('result', onResult);
     </script>
 </body>
 {% endblock %}

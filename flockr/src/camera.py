@@ -90,13 +90,15 @@ def start_camera():
     """
     Starts a background thread that continuously reads frames from the camera.
     """
-    global _running, _thread
-    if _running:
-        return
-    _running = True
-    _thread = threading.Thread(target=_reader, daemon=True)
-    _thread.start()
-    print("Camera thread started.")
+    # Check if not running in hot reloader
+    if os.environ.get("WERKZEUG_RUN_MAIN") == "true":
+        global _running, _thread
+        if _running:
+            return
+        _running = True
+        _thread = threading.Thread(target=_reader, daemon=True)
+        _thread.start()
+        print("Camera thread started.")
 
 
 def get_latest_frame():
