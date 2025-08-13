@@ -3,7 +3,7 @@ Flockr uses a [Tensor Flow Lite model](https://www.kaggle.com/models/google/aiy/
 
 But, in this build, the classificaiton runs locally on a [Tachyon](https://store.particle.io/products/tachyon-5g-single-board-computer?srsltid=AfmBOoqS-CJ_dRhT2RDfvqEBa6hlWv86Dj3AclJPp9UIN-GQakMZWwWN) which hosts a webpage using a [Cloudflare tunnel](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/)
 
-<img width="901" height="1539" alt="diagram" src="https://github.com/user-attachments/assets/d59a3b74-77b2-427b-9824-0ce3cced1a8d" />
+<img width="100%" height="500" alt="diagram" src="https://github.com/user-attachments/assets/d59a3b74-77b2-427b-9824-0ce3cced1a8d" />
 
 https://github.com/user-attachments/assets/c47c8142-230c-4830-99cf-fae5f97ccff1
 
