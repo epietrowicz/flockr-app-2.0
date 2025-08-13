@@ -5,7 +5,7 @@ But, in this build, the classificaiton runs locally on a [Tachyon](https://store
 
 <img height="500" alt="diagram" src="https://github.com/user-attachments/assets/d59a3b74-77b2-427b-9824-0ce3cced1a8d" />
 
-https://github.com/user-attachments/assets/c47c8142-230c-4830-99cf-fae5f97ccff1
+https://github.com/user-attachments/assets/afe89a1b-3852-466c-9d23-a2d4e0f47b41
 
 WiFi access is not necessary for this system to work as the traffic is routed over the Tachyon's 5G connection. 
 
