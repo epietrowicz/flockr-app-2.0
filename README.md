@@ -3,7 +3,7 @@ Flockr uses a [Tensor Flow Lite model](https://www.kaggle.com/models/google/aiy/
 
 But, in this build, the classificaiton runs locally on a Tachyon which hosts a webpage using a [Cloudflare tunnel](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/)
 
-![Video demo](https://youtu.be/Vv7dOztMOqo)
+https://github.com/user-attachments/assets/c47c8142-230c-4830-99cf-fae5f97ccff1
 
 WiFi access is not necessary for this system to work as the traffic is routed over the Tachyon's 5G connection. 
 
