@@ -13,7 +13,7 @@ services:
       - "/dev/video3:/dev/video3"
   cloudflared:
     image: cloudflare/cloudflared:latest
-    command: tunnel --no-autoupdate run --token eyJhIjoiMmIwNDU1ZGMxYWFiYzQ1YTUxMjVlZTc1NmNjY2Y1NDciLCJ0IjoiMjBkM2Q4MDctYzMzMy00MDIzLWEyYWYtNzIxNmVjZDM1YTI4IiwicyI6Ik9HTmhORGcxTldNdE5HWmtOeTAwTkdFd0xUazROamd0WXpjek0yRmxaVFkzTkdFNSJ9
+    command: tunnel --no-autoupdate run --token <your_token_here>
     networks:
       - flockr-net
     depends_on:
